@@ -167,11 +167,7 @@ The following trained checkpoints are available on ModelScope.
 
 ## Data
 
-We fine-tune base LLMs on a **100K-example subset** of the [Multilingual-SFT dataset](https://huggingface.co/datasets/agentlans/multilingual-sft), which combines:
-- [xP3mt](https://huggingface.co/datasets/bigscience/xP3mt)
-- [Bactrian-X](https://huggingface.co/datasets/MBZUAI/Bactrian-X) 
-- Text subset of [Aya Vision](https://huggingface.co/datasets/CohereForAI/aya_collection)
-- LLM-generated instruction data
+We fine-tune base LLMs on a **100K-example subset** of the [Multilingual-SFT dataset](https://huggingface.co/datasets/agentlans/multilingual-sft).
 
 To download and preprocess the dataset (filters out multimodal samples):
 ```bash
