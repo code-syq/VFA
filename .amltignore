@@ -1,0 +1,9 @@
+uv_pangea/
+uv_lmms_eval/
+uv_llamafactory/
+uv_opencompass/
+outputs/
+amlt/
+__pycache__/
+*.pyc
+.git/

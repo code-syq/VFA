@@ -1,0 +1,6 @@
+dataset_path: json
+dataset_kwargs:
+  data_files:
+    train: "lmms_eval/tasks/xchat/prompts/spanish_prompts.jsonl"
+task: "xchat_spanish"
+include: _default_template.yaml

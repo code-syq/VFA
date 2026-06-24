@@ -1,0 +1,7 @@
+group: marvl_prism
+task:
+  - marvl_id_prism
+  - marvl_sw_prism
+  - marvl_ta_prism
+  - marvl_tr_prism
+  - marvl_zh_prism

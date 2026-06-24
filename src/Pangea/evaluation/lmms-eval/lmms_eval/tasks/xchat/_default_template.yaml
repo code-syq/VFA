@@ -1,0 +1,51 @@
+test_split: train
+output_type: generate_until
+process_docs: !function utils.xchat_process_docs
+doc_to_visual: !function utils.xchat_doc_to_visual
+doc_to_text: !function utils.xchat_doc_to_text
+doc_to_target: !function utils.xchat_doc_to_target
+generation_kwargs:
+  max_new_tokens: 1024
+  temperature: 0
+  top_p: 0
+  num_beams: 1
+  do_sample: false
+process_results: !function utils.xchat_process_results
+metric_list:
+  - metric: gpt_eval_xchat_all
+    aggregation: !function utils.xchat_all_aggregation
+    higher_is_better: true
+  - metric: gpt_eval_xchat_science_figure_explanation
+    aggregation: !function utils.xchat_science_figure_explanation_aggregation
+    higher_is_better: true
+  - metric: gpt_eval_xchat_ocr
+    aggregation: !function utils.xchat_ocr_aggregation
+    higher_is_better: true
+  - metric: gpt_eval_xchat_defeasible_reasoning
+    aggregation: !function utils.xchat_defeasible_reasoning_aggregation
+    higher_is_better: true
+  - metric: gpt_eval_xchat_iq_test
+    aggregation: !function utils.xchat_iq_test_aggregation
+    higher_is_better: true
+  - metric: gpt_eval_xchat_art_explanation
+    aggregation: !function utils.xchat_art_explanation_aggregation
+    higher_is_better: true
+  - metric: gpt_eval_xchat_image_humor_understanding
+    aggregation: !function utils.xchat_image_humor_understanding_aggregation
+    higher_is_better: true
+  - metric: gpt_eval_xchat_unusual_images
+    aggregation: !function utils.xchat_unusual_images_aggregation
+    higher_is_better: true
+  - metric: gpt_eval_xchat_graph_interpretation
+    aggregation: !function utils.xchat_graph_interpretation_aggregation
+    higher_is_better: true
+  - metric: gpt_eval_xchat_cultural_understanding
+    aggregation: !function utils.xchat_cultural_understanding_aggregation
+    higher_is_better: true
+metadata:
+  version: 0.0
+  gpt_eval_model_name: "gpt-4o"
+model_specific_prompt_kwargs:
+  default:
+    pre_prompt: ""
+    post_prompt: ""

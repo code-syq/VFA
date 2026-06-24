@@ -1,0 +1,9 @@
+{
+    "multilingual_sft_99999": {
+        "file_name": "mmlm_via_merge/multilingual_sft_99999.json",
+        "columns": {
+            "prompt": "input",
+            "response": "output"
+        }
+    }
+}

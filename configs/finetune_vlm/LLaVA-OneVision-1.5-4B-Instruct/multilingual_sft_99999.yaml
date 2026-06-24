@@ -1,0 +1,43 @@
+### model
+model_name_or_path: lmms-lab/LLaVA-OneVision-1.5-4B-Instruct  # TODO: change to your local path
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+deepspeed: src/LLaMA-Factory/examples/deepspeed/ds_z2_config.json
+
+### dataset
+dataset: multilingual_sft_99999
+template: qwen2_vl
+cutoff_len: 2048
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: outputs/finetune_vlm/LLaVA-OneVision-1.5-4B-Instruct/multilingual_sft_99999
+logging_steps: 1
+save_strategy: epoch
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: wandb
+
+### train
+freeze_vision_tower: true
+
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 16
+learning_rate: 1.0e-5
+num_train_epochs: 1.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+seed: 42
+optim: adamw_torch
+adam_beta1: 0.9
+adam_beta2: 0.999
+adam_epsilon: 1e-8

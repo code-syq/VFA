@@ -1,0 +1,9 @@
+group: xmmmu_prism
+task:
+  - mmmu_Arabic_val_prism
+  - mmmu_English_val_prism
+  - mmmu_French_val_prism
+  - mmmu_Hindi_val_prism
+  - mmmu_Indonesian_val_prism
+  - mmmu_Japanese_val_prism
+  - mmmu_Portuguese_val_prism

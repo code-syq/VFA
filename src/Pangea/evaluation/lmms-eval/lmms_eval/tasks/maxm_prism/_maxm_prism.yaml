@@ -1,0 +1,9 @@
+group: maxm_prism
+task:
+  - maxm_en_prism
+  - maxm_fr_prism
+  - maxm_hi_prism
+  - maxm_iw_prism
+  - maxm_ro_prism
+  - maxm_th_prism
+  - maxm_zh_prism

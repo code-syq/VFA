@@ -1,0 +1,45 @@
+#!/bin/bash
+
+ACCELERATE_CPU_AFFINITY=1 torchrun --nproc_per_node="${NUM_GPUS}" --nnodes="${NNODES}" --node_rank="${RANK}" --master_addr="${ADDR}" --master_port="${PORT}" \
+    LLaVA-NeXT/llava/train/train_mem.py \
+    --deepspeed scripts/zero3.json \
+    --model_name_or_path Qwen/Qwen2-7B-Instruct \
+    --version qwen_1_5 \
+    --data_path=Pangea/train/data.json \
+    --image_folder Pangea/train/images \
+    --pretrain_mm_mlp_adapter=Pangea/ckpts/mm_projector.bin \
+    --mm_tunable_parts=mm_vision_tower,mm_mlp_adapter,mm_language_model \
+    --mm_vision_tower_lr=2e-6 \
+    --vision_tower openai/clip-vit-large-patch14-336 \
+    --mm_projector_type mlp2x_gelu \
+    --mm_vision_select_layer -2 \
+    --mm_use_im_start_end False \
+    --mm_use_im_patch_token False \
+    --group_by_modality_length True \
+    --image_aspect_ratio anyres \
+    --image_grid_pinpoints "[(336, 672), (672, 336), (672, 672), (1008, 336), (336, 1008)]" \
+    --mm_patch_merge_type spatial_unpad \
+    --bf16 True \
+    --output_dir Pangea/ckpts \
+    --num_train_epochs 1 \
+    --per_device_train_batch_size 2 \
+    --per_device_eval_batch_size 1 \
+    --gradient_accumulation_steps 4 \
+    --evaluation_strategy no \
+    --save_strategy steps \
+    --save_steps 0.05 \
+    --learning_rate 2e-5 \
+    --weight_decay 0. \
+    --warmup_ratio 0.03 \
+    --lr_scheduler_type cosine \
+    --logging_steps 1 \
+    --tf32 True \
+    --model_max_length 8192 \
+    --gradient_checkpointing True \
+    --dataloader_num_workers 4 \
+    --lazy_preprocess True \
+    --report_to wandb \
+    --torch_compile True \
+    --torch_compile_backend inductor \
+    --dataloader_drop_last True \
+    --run_name pangea-finetune

@@ -1,0 +1,9 @@
+group: m3exam_prism
+task:
+  - m3exam_afrikaans_prism
+  - m3exam_chinese_prism
+  - m3exam_english_prism
+  - m3exam_italian_prism
+  - m3exam_portuguese_prism
+  - m3exam_thai_prism
+  - m3exam_vietnamese_prism

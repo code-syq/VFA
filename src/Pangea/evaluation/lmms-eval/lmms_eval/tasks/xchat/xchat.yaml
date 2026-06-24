@@ -1,0 +1,10 @@
+group: xchat
+task:
+  - xchat_chinese
+  - xchat_english
+  - xchat_hindi
+  - xchat_indonesian
+  - xchat_japanese
+  - xchat_kinyarwanda
+  - xchat_korean
+  - xchat_spanish

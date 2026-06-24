@@ -1,0 +1,33 @@
+# Example pipeline config for VFA
+# This config defines the full pipeline: merge → evaluate
+
+# --- Model paths (change these to your local paths) ---
+vlm_model_type: Qwen/Qwen2.5-VL-7B-Instruct
+llm_model_type: Qwen/Qwen2.5-7B
+vlm_model_path: /path/to/Qwen2.5-VL-7B-Instruct
+llm_model_path: /path/to/finetuned-Qwen2.5-7B  # Stage 1 output
+base_model_path: /path/to/Qwen2.5-7B            # Original base LLM
+
+# --- Merge parameters ---
+mode: task_arithmetic  # choices: weighted_average, task_arithmetic, ties
+alpha: 0.8
+# density: 0.2  # only needed for ties/dareties/darelinear
+
+# --- Pipeline config ---
+lora_merge_config:
+  need_lora_merge: false
+
+model_merge_config:
+  need_model_merge: true
+  vlm_model_type: "{vlm_model_type}"
+  llm_model_type: "{llm_model_type}"
+  vlm_model_path: "{vlm_model_path}"
+  llm_model_path: "{llm_model_path}"
+  base_model_path: "{base_model_path}"
+  output_dir: outputs/merged_mllm/Qwen2.5-VL-7B-VFA-TA-0.8
+  mode: "{mode}"
+  alpha: "{alpha}"
+
+eval_config:
+  eval_ckpt: outputs/merged_mllm/Qwen2.5-VL-7B-VFA-TA-0.8
+  eval_output_root: outputs/eval_results

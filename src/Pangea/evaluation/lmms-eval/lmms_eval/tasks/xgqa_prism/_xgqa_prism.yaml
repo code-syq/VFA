@@ -1,0 +1,10 @@
+group: xgqa_prism
+task:
+  - xgqa_bn_prism
+  - xgqa_de_prism
+  - xgqa_en_prism
+  - xgqa_id_prism
+  - xgqa_ko_prism
+  - xgqa_pt_prism
+  - xgqa_ru_prism
+  - xgqa_zh_prism
