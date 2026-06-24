@@ -1,0 +1,11 @@
+### model
+model_name_or_path: /nfsdata/syq/models/merged_mllms/qwen25vl_x_qwen25_7b_instruct_layers12_27_wa_0p9
+adapter_name_or_path: /nfsdata/syq/models/dpo/qwen25vl_layers12_27_wa0p9_rlaifv10k_lora_dpo
+template: qwen2_vl
+trust_remote_code: true
+
+### export
+export_dir: /nfsdata/syq/models/dpo_merged/qwen25vl_layers12_27_wa0p9_rlaifv10k_lora_dpo_merged
+export_size: 5
+export_device: auto
+export_legacy_format: false

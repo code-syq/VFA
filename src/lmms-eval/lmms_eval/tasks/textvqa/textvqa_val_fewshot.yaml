@@ -1,0 +1,27 @@
+# TextVQA few-shot variant
+#
+# Same as textvqa_val.yaml but with fewshot_split pointing to the train split (34,602 examples).
+# The lmms-lab/textvqa dataset officially has train/validation/test splits with identical schema.
+#
+# Usage:
+#   --tasks textvqa_val_fewshot --num_fewshot N
+#
+task: textvqa_val_fewshot
+test_split: validation
+training_split: train
+fewshot_split: train
+fewshot_config:
+  sampler: first_n
+# Override doc_to_target: the dataset has "answers" (list) not "answer" (str).
+# For few-shot labeled examples we need a real answer string, not the literal "answer".
+doc_to_target: !function utils.textvqa_doc_to_target
+metric_list:
+  - metric: exact_match
+    aggregation: mean
+    higher_is_better: true
+    ignore_case: true
+    ignore_punctuation: true
+  - metric: submission
+    aggregation: !function utils.textvqa_aggregate_submissions
+    higher_is_better: true
+include: _default_template_textvqa_yaml

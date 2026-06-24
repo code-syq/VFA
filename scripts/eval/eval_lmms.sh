@@ -6,10 +6,10 @@ OUTPUT_ROOT=$2
 mkdir -p "$OUTPUT_ROOT"
 OUTPUT_ROOT=$(realpath "$OUTPUT_ROOT")
 
-# export HF_HOME=/mnt/yixiali/CACHE/huggingface
-# export HF_HUB_CACHE=/mnt/yixiali/CACHE/huggingface/hub
-# export HF_DATASETS_CACHE=/mnt/yixiali/CACHE/huggingface/datasets
-# export TRANSFORMERS_CACHE=/mnt/yixiali/CACHE/huggingface/transformers
+# export HF_HOME="$HOME/.cache/huggingface"
+# export HF_HUB_CACHE="$HF_HOME/hub"
+# export HF_DATASETS_CACHE="$HF_HOME/datasets"
+# export TRANSFORMERS_CACHE="$HF_HOME/transformers"
 # 强制使用本地缓存，避免 HuggingFace Hub API 429 错误 (需先运行 download_data.py)
 # export PANGEABENCH_USE_LOCAL_CACHE=1
 
@@ -91,6 +91,6 @@ done
 
 
 # export TASKS="ocrbench_v2,mmbench_en_dev,mmmu_val,mathvista_testmini"
-# MODEL=/mnt/yixiali/MODELS/Qwen/Qwen2.5-VL-7B-Instruct
-# OUTPUT_ROOT=/mnt/yixiali/CODES/LLaMA-Factory/outputs/mmlm_via_merge/eval_visual_lmms
+# MODEL=/path/to/Qwen2.5-VL-7B-Instruct
+# OUTPUT_ROOT=outputs/eval_lmms
 # ts -G 1 bash scripts/eval/lmms_eval/eval_lmms.sh "$MODEL" "$OUTPUT_ROOT"

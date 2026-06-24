@@ -1,0 +1,45 @@
+### model
+model_name_or_path: /nfsdata/syq/models/merged_mllms/qwen25vl_x_qwen25_7b_instruct_layers12_27_wa_0p9
+image_max_pixels: 262144
+video_max_pixels: 16384
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+freeze_vision_tower: true
+freeze_multi_modal_projector: false
+freeze_language_model: true
+
+### dataset
+dataset_dir: /nfsdata/syq/LLaMA-Factory/src/LLaMA-Factory/data
+media_dir: /nfsdata/syq/LLaMA-Factory/src/LLaMA-Factory/data
+dataset: wemath2_standard_sft
+template: qwen2_vl
+cutoff_len: 2048
+max_samples: 32
+overwrite_cache: true
+preprocessing_num_workers: 4
+dataloader_num_workers: 2
+
+### output
+output_dir: /nfsdata/syq/models/continued_sft/qwen25vl_layers12_27_wa0p9_wemath2_projector_sft_smoke
+logging_steps: 1
+save_steps: 20
+save_total_limit: 1
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 4
+learning_rate: 1.0e-4
+num_train_epochs: 1.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.03
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: null

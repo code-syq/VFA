@@ -34,7 +34,6 @@ VFA decouples multilingual learning from visual alignment through a two-stage vi
 ```bash
 git clone https://github.com/sustech-nlp/VFA.git
 cd VFA
-pip install -r requirements.txt
 ```
 
 ### 2. Install LLaMA-Factory
@@ -169,9 +168,9 @@ The following trained checkpoints are available on ModelScope.
 ## Data
 
 We fine-tune base LLMs on a **100K-example subset** of the [Multilingual-SFT dataset](https://huggingface.co/datasets/agentlans/multilingual-sft), which combines:
-- [xP3mt](https://huggingface.co/datasets/bigscience/xP3mt) (Muennighoff et al., 2022)
-- [Bactrian-X](https://huggingface.co/datasets/MBZUAI/Bactrian-X) (Li et al., 2023)
-- Text subset of [Aya Vision](https://huggingface.co/datasets/CohereForAI/aya_collection) (Singh et al., 2024)
+- [xP3mt](https://huggingface.co/datasets/bigscience/xP3mt)
+- [Bactrian-X](https://huggingface.co/datasets/MBZUAI/Bactrian-X) 
+- Text subset of [Aya Vision](https://huggingface.co/datasets/CohereForAI/aya_collection)
 - LLM-generated instruction data
 
 To download and preprocess the dataset (filters out multimodal samples):

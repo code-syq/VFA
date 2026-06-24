@@ -432,7 +432,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-    # verify_mapping(MODELS_ROOT="/mnt/yixiali/MODELS")
+    # verify_mapping(MODELS_ROOT="/path/to/models")
 
 
 
@@ -471,9 +471,9 @@ VLM_MODEL_TYPE=Qwen/Qwen2.5-VL-7B-Instruct
 LLM_MODEL_TYPE=Qwen/Qwen3-4B-Base
 
 # path to models
-VLM_MODEL_PATH=/mnt/yixiali/MODELS/Qwen/Qwen3-VL-4B-Instruct
-LLM_MODEL_PATH=/mnt/yixiali/MODELS/Qwen/Qwen3-4B-Instruct-2507
-BASE_MODEL_PATH=/mnt/yixiali/MODELS/Qwen/Qwen3-4B-Base
+VLM_MODEL_PATH=/path/to/Qwen3-VL-4B-Instruct
+LLM_MODEL_PATH=/path/to/Qwen3-4B-Instruct-2507
+BASE_MODEL_PATH=/path/to/Qwen3-4B-Base
 
 # output directory
 OUTPUT_DIR=./debug_task_arithmetic
@@ -502,9 +502,9 @@ VLM_MODEL_TYPE=Qwen/Qwen3-VL-4B-Instruct
 LLM_MODEL_TYPE=Qwen/Qwen3-4B-Base
 
 # path to models
-VLM_MODEL_PATH=/mnt/yixiali/MODELS/Qwen/Qwen3-VL-4B-Instruct
-LLM_MODEL_PATH=/mnt/yixiali/MODELS/Qwen/Qwen3-4B-Instruct-2507
-BASE_MODEL_PATH=/mnt/yixiali/MODELS/Qwen/Qwen3-4B-Base
+VLM_MODEL_PATH=/path/to/Qwen3-VL-4B-Instruct
+LLM_MODEL_PATH=/path/to/Qwen3-4B-Instruct-2507
+BASE_MODEL_PATH=/path/to/Qwen3-4B-Base
 
 # output directory
 OUTPUT_DIR=./debug_ties

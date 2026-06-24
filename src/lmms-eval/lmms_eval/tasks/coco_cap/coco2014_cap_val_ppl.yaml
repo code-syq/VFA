@@ -1,0 +1,17 @@
+dataset_path: lmms-lab/COCO-Caption
+dataset_kwargs:
+  token: True
+task: "coco2014_cap_val_ppl"
+group: "coco_caption_ppl"
+test_split: val
+output_type: loglikelihood
+doc_to_visual: !function utils.coco_doc_to_visual
+doc_to_text: ""
+doc_to_target: !function utils.coco_doc_to_target_ppl
+process_results: !function utils.coco_ppl_process_results
+metric_list:
+  - metric: caption_ppl
+    aggregation: !function utils.coco_ppl_aggregate
+    higher_is_better: false
+metadata:
+  - version: 0.0

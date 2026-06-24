@@ -1,0 +1,11 @@
+### model
+model_name_or_path: /nfsdata/syq/models/vlms/Qwen2.5-VL-7B-Instruct
+adapter_name_or_path: /nfsdata/syq/models/dpo/qwen25vl_original_rlaifv10k_lora_dpo
+template: qwen2_vl
+trust_remote_code: true
+
+### export
+export_dir: /nfsdata/syq/models/dpo_merged/qwen25vl_original_rlaifv10k_lora_dpo_merged
+export_size: 5
+export_device: auto
+export_legacy_format: false

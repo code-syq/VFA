@@ -1,0 +1,16 @@
+dataset_path: foundation-multimodal-models/DetailCaps-4870
+dataset_kwargs:
+  token: True
+task: "detailcaps_ppl"
+test_split: test
+output_type: loglikelihood
+doc_to_visual: !function utils_ppl.detailcaps_doc_to_visual
+doc_to_text: ""
+doc_to_target: !function utils_ppl.detailcaps_doc_to_target_ppl
+process_results: !function utils_ppl.detailcaps_ppl_process_results
+metric_list:
+  - metric: detailcaps_ppl
+    aggregation: !function utils_ppl.detailcaps_ppl_aggregate
+    higher_is_better: false
+metadata:
+  - version: 0.0

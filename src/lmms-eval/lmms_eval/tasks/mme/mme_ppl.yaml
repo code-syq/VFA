@@ -1,0 +1,20 @@
+dataset_path: lmms-lab/MME
+dataset_kwargs:
+  token: True
+task: "mme_ppl"
+test_split: test
+output_type: multiple_choice
+doc_to_visual: !function utils.mme_doc_to_visual
+doc_to_text: !function utils.mme_doc_to_text_ppl
+doc_to_choice: !function utils.mme_doc_to_choice
+doc_to_target: !function utils.mme_doc_to_target_ppl
+process_results: !function utils.mme_ppl_process_results
+metric_list:
+  - metric: mme_perception_score
+    aggregation: !function utils.mme_aggregate_results
+    higher_is_better: true
+  - metric: mme_cognition_score
+    aggregation: !function utils.mme_aggregate_results
+    higher_is_better: true
+metadata:
+  - version: 0.0

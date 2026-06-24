@@ -1,0 +1,56 @@
+# TextCaps few-shot variant
+#
+# Same as textcaps_val.yaml but with fewshot_split pointing to the train split (21,953 examples).
+# The lmms-lab/TextCaps dataset officially has train/val/test splits with identical schema.
+#
+# Usage:
+#   --tasks textcaps_val_fewshot --num_fewshot N
+#
+dataset_path: lmms-lab/TextCaps
+dataset_kwargs:
+  token: True
+task: "textcaps_val_fewshot"
+group: "textcaps_caption"
+test_split: val
+training_split: train
+fewshot_split: train
+fewshot_config:
+  sampler: first_n
+output_type: generate_until
+doc_to_visual: !function utils.textcaps_doc_to_visual
+doc_to_text: !function utils.textcaps_doc_to_text
+# Override doc_to_target: the dataset has "caption_str" (list) not "answer" (str).
+# For few-shot labeled examples we need a real caption string, not the literal "answer".
+doc_to_target: !function utils.textcaps_doc_to_target
+generation_kwargs:
+  max_new_tokens: 64
+  temperature: 0
+  top_p: 1.0
+  num_beams: 1
+  do_sample: false
+process_results: !function utils.textcaps_process_result
+metric_list:
+  - metric: textcaps_Bleu_4
+    aggregation: !function utils.textcaps_bleu4
+    higher_is_better: true
+  - metric: textcaps_Bleu_3
+    aggregation: !function utils.textcaps_bleu3
+    higher_is_better: true
+  - metric: textcaps_Bleu_2
+    aggregation: !function utils.textcaps_bleu2
+    higher_is_better: true
+  - metric: textcaps_Bleu_1
+    aggregation: !function utils.textcaps_bleu1
+    higher_is_better: true
+  - metric: textcaps_METEOR
+    aggregation: !function utils.textcaps_meteor
+    higher_is_better: true
+  - metric: textcaps_ROUGE_L
+    aggregation: !function utils.textcaps_rougel
+    higher_is_better: true
+  - metric: textcaps_CIDEr
+    aggregation: !function utils.textcaps_cider
+    higher_is_better: true
+metadata:
+  - version: 0.0
+include: _default_template_textcaps_yaml

@@ -6,10 +6,10 @@ OUTPUT_ROOT=$2
 mkdir -p "$OUTPUT_ROOT"
 OUTPUT_ROOT=$(realpath "$OUTPUT_ROOT")
 
-export HF_HOME=/mnt/yixiali/CACHE/huggingface
-export HF_HUB_CACHE=/mnt/yixiali/CACHE/huggingface/hub
-export HF_DATASETS_CACHE=/mnt/yixiali/CACHE/huggingface/datasets
-export TRANSFORMERS_CACHE=/mnt/yixiali/CACHE/huggingface/transformers
+export HF_HOME="${HF_HOME:-$HOME/.cache/huggingface}"
+export HF_HUB_CACHE="${HF_HUB_CACHE:-$HF_HOME/hub}"
+export HF_DATASETS_CACHE="${HF_DATASETS_CACHE:-$HF_HOME/datasets}"
+export TRANSFORMERS_CACHE="${TRANSFORMERS_CACHE:-$HF_HOME/transformers}"
 # 强制使用本地缓存，避免 HuggingFace Hub API 429 错误 (需先运行 download_data.py)
 export PANGEABENCH_USE_LOCAL_CACHE=1
 
@@ -101,11 +101,11 @@ done
 
 
 # export TASKS="maxm,xmmmu,cvqa,marvl,xm100,xgqa,m3exam"
-# MODEL=/mnt/yixiali/MODELS/Qwen/Qwen2.5-VL-7B-Instruct
-# OUTPUT_ROOT=/mnt/yixiali/CODES/LLaMA-Factory/outputs/mmlm_via_merge/eval
+# MODEL=/path/to/Qwen2.5-VL-7B-Instruct
+# OUTPUT_ROOT=outputs/eval_pangeabench
 # ts -G 1 bash scripts/eval/pangeabench/eval_pangeabench.sh "$MODEL" "$OUTPUT_ROOT"
 
 # export TASKS="multilingual_llava_bench,xchat"
-# MODEL=/mnt/yixiali/MODELS/Qwen/Qwen2.5-VL-7B-Instruct
-# OUTPUT_ROOT=/mnt/yixiali/CODES/LLaMA-Factory/outputs/mmlm_via_merge/eval
+# MODEL=/path/to/Qwen2.5-VL-7B-Instruct
+# OUTPUT_ROOT=outputs/eval_pangeabench
 # ts -G 1 bash scripts/eval/pangeabench/eval_pangeabench.sh "$MODEL" "$OUTPUT_ROOT"

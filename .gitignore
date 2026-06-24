@@ -4,4 +4,8 @@ uv_pangea/
 outputs/
 .claude/
 test/
-amlt/
+__pycache__/
+*.py[cod]
+nohup.out
+.env
+.env.*

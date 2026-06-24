@@ -6,11 +6,11 @@ import subprocess
 # ==========================================
 
 # 输入你的模型路径
-VLM_MODEL_PATH = "/mnt/yixiali/MODELS/llava-hf/llama3-llava-next-8b-hf"
-LLM_MODEL_PATH = "/mnt/yixiali/CODES/LLaMA-Factory/outputs/mmlm_via_merge/ckpt/finetune_llm/Meta-Llama-3-8B-Instruct/multilingual_sft_99999_syq/checkpoint-2346"
+VLM_MODEL_PATH = os.environ.get("VLM_MODEL_PATH", "/path/to/llama3-llava-next-8b-hf")
+LLM_MODEL_PATH = os.environ.get("LLM_MODEL_PATH", "/path/to/finetuned-llama3-8b")
 
 # 如果跑 Task Arithmetic/Ties 需要 Base
-BASE_MODEL_PATH = "/mnt/yixiali/MODELS/meta-llama/Meta-Llama-3-8B-Instruct"
+BASE_MODEL_PATH = os.environ.get("BASE_MODEL_PATH", "/path/to/Meta-Llama-3-8B-Instruct")
 
 # 模型类型 (传给脚本的参数)
 VLM_MODEL_TYPE = "llava-hf/llama3-llava-next-8b-hf"
