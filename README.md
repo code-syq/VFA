@@ -132,7 +132,7 @@ bash scripts/eval/eval_lmms.sh /path/to/merged-model outputs/eval_results
 
 ## Released Checkpoints
 
-The following trained checkpoints are available on ModelScope. Each link points to the corresponding directory in the [MMLM-via-Model-Merge](https://www.modelscope.cn/models/YQ0509/MMLM-via-Model-Merge/files) repository.
+The following trained checkpoints are available on ModelScope.
 
 | Model | Training Type | Download |
 |:------|:--------------|:---------|
