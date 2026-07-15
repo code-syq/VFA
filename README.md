@@ -114,7 +114,7 @@ python scripts/merge/vlm_model_merge.py \
 **Multilingual multimodal evaluation** (lmms-eval):
 ```bash
 export TASKS="maxm,xgqa,xmmmu,xm100,marvl,m3exam"
-bash scripts/eval/eval_lmms.sh /path/to/merged-model outputs/eval_results
+bash scripts/eval/eval_pangeabench.sh /path/to/merged-model outputs/eval_results
 ```
 
 **Text-only multilingual evaluation** (OpenCompass):
